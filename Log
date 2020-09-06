@@ -1,0 +1,9 @@
+# Diamonds Price Prediction Competition
+
+This is a control log of predictions and submissions for Diamdons Price Prediction Competition in Ironhack's Data PT Madrid 2020, by Sergio Figueroa.
+
+To be read as follows: [date/day of Sept - dataset name - hyperparams - Model - submitted Y/N]
+
+1/ 5 - Diamonds_train - baseline_model: SC standard, OHE - LinearR - Y
+
+
