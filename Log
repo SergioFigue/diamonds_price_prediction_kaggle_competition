@@ -4,6 +4,104 @@ This is a control log of predictions and submissions for Diamdons Price Predicti
 
 To be read as follows: [date/day of Sept - dataset name - hyperparams - Model - submitted Y/N]
 
-1/ 5 - Diamonds_train - baseline_model: SC standard, OHE - LinearR - Y
+1.) 5 - Diamonds_train - baseline_model - LinearR - Yes
+
+2) 8_1 - Diamonds_train con todo según ejemplo de clase y RandomForest - No
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=-1,
+                                 n_iter=32)
+
+Score: -557.6319571401002
+
+
+8_2 - Diamonds_train con todo según ejemplo de clase y RandomForest - Yes
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16, 32],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=-1,
+                                 n_iter=32)
+
+Score: 557.0734703258129
+
+
+8_3 Diamonds PPC con todo según el ejemplo de clase y RandomForest - No
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=-1,
+                                 n_iter=32)
+
+
+Score: 78.68864216788678
+
+
+8_4 Diamonds_train con todo y K Nearest Neighbors - No
+
+n_neighbors = 5, leaf_size=60, metric = 'minkowski', p = 1)
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=-1,
+                                 n_iter=32)
+
+Score = 743.7568195428926 (No grid search)
+
+
+8_5 Diamonds_train con todo y SVR kernel rbf - No
+
+Score = 2938.964652679132
+
+8_6 Diamonds_train con todo y SVR kernel linear - No
+
+Score = 1538.1504338411319
+
+8_7 Diamonds_train con todo y SVR kernel polynomial - No
+
+Score = 9725.838442250086
+
+8_8 Diamonds_train con todo y LinealSVR - No 
+LinearSVR(random_state=0, tol=1e-5) 
+
+Score = 1578.0100566016572
+
+
 
 
