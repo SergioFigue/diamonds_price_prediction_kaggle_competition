@@ -162,3 +162,103 @@ Score 0.0947791519830213
 11_12 Diamonds_train en log Lsvr - No
 
 
+15_13 Diamonds_train con Gradient Boost - Yes
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=6,
+                                 n_iter=32)
+test error: 738.578585698837
+train error: 709.9798926176238
+Score --543.8386579214105
+
+
+15_18 mismo pero con robust - YES
+
+test error: 759.0928911882203
+train error: 703.9727002606021
+score: -542.5965813523222
+
+
+
+15_14 Diamonds_train con Hist Gradient Boost - Yes
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+#    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=8,
+                                 n_iter=32)
+
+
+Score -551.1289484036412
+
+15_15 Diamonds_train con Hist Gradient Boost warm start, robust - No
+
+param_grid = {
+    'preprocessor__num__imputer__strategy': ['mean', 'median'],
+#    'regressor__n_estimators': [16, 32, 64, 128, 256, 512],
+    'regressor__max_depth': [2, 4, 8, 16],
+}
+
+grid_search = RandomizedSearchCV(model, 
+                                 param_grid, 
+                                 cv=5, 
+                                 verbose=10, 
+                                 scoring='neg_root_mean_squared_error', 
+                                 n_jobs=8,
+                                 n_iter=32)
+
+test error: 536.4253948388273
+train error: 491.76064818966654
+Score -551.1289484036412
+
+15_16 mismo segunda vez con warm start - YES
+
+test error: 528.0402081671607
+train error: 487.94967941238417
+Score -551.1289484036412
+
+15_17 mismo tercera vez con warm start y sin imputer - YES
+
+test error: 543.4915082691342
+train error: 485.0724668438864
+Score CV 552.1892440546383 (no grid)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
