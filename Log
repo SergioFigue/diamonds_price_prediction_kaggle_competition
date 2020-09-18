@@ -242,16 +242,46 @@ train error: 485.0724668438864
 Score CV 552.1892440546383 (no grid)
 
 
+18_18 Diamonds RG en log sin outliers - YES 
+
+test error: 4947.473281257925
+train error: 4864.371333648246
+Score CV 468.34857961472454
+
+18_19 Diamonds RG en log con outliers - YES 
+
+test error: 5553.816389153018
+train error: 5552.193115215027
+Score CV 558.6755139755411
 
 
+18_20 Diamonds sin outliers con Hist Gradient Boost warm start- YES
+
+model= Pipeline(steps=[('preprocessor', preprocessor),
+                       ('regressor', HistGradientBoostingRegressor(warm_start=True))])
+
+test error: 454.218069076441
+train error: 393.73115736428434
+Score 450.28795591859796
 
 
+18_21 Diamonds sin outliers con Gradient Boost warm start - YES
+
+model= Pipeline(steps=[('preprocessor', preprocessor),
+                       ('regressor', GradientBoostingRegressor(warm_start=True))])
+
+test error: 628.5379857657118
+train error: 612.8153521232724
+Score -452.3075339327912
 
 
+18_22 Diamonds sin outliers con RF y TTV - YES
 
-
-
-
+test error: 497.75624811811997
+train error: 173.17581282516363
+Score -471.74040914085555
+Validation 438.77660817744624
+Score -459.733436761827
 
 
 
